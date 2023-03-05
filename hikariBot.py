@@ -4,11 +4,13 @@ import lightbulb
 #from ast import Pass just imported idk wtf this is
 import hikari as h
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 #getting token of bot and assigning shit to bot
 bot = lightbulb.BotApp(
-    token= "OTMzNjc3NDQ3NDI4MzI5NDky.YelA4g.PbSVzi0w-mIdHLFfTBiCgCsnD5s",
-    default_enabled_guilds=(895148548587393045, 820892867199369236, 892624305471516693,867283568522035210))
+    token= os.getenv('token'),
+    default_enabled_guilds=(895148548587393045, 820892867199369236, 892624305471516693))
 
 #events
 @bot.listen(event_type=h.GuildMessageCreateEvent) #event type is a parameter
